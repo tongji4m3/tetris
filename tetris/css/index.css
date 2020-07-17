@@ -1,0 +1,68 @@
+/*设置整体背景*/
+body {
+    opacity: 0.8;
+    background-image: url('../img/bg.jpg');
+}
+
+/*设置游戏区*/
+#gameArea {
+    float: left;
+    padding-left: 400px;
+}
+
+/*设置游戏区的表格*/
+#boardTable {
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+
+/*设置游戏区每个小方格*/
+#boardTable tr td {
+    width: 20px;
+    height: 20px;
+    border: 1px solid gray;
+}
+
+
+/*右边区域包含了下一方块显示视图,以及提示区*/
+#rightArea {
+    float: left;
+}
+
+/*下一方块区*/
+#nextBoardTable {
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+
+/*设置下一方块区每个小方格*/
+#nextBoardTable tr td {
+    width: 20px;
+    height: 20px;
+    border: 1px solid gray;
+}
+
+/*提示区*/
+#noticeArea {
+    height: 397px;
+    border: 3px solid black;
+}
+
+/*扩展分数,速度文本的位置*/
+#scopeText {
+    float: left;
+}
+
+#scope {
+    float: left;
+}
+
+#speedText {
+    float: left;
+}
+
+#speed {
+    float: left;
+}
+
+

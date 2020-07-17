@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>俄罗斯方块</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+
+    <script type="text/javascript" src="../js/tetris.js"></script>
+    <script type="text/javascript" src="../js/const.js"></script>
+    <script type="text/javascript" src="../js/controller.js"></script>
+    <script type="text/javascript" src="../js/view.js"></script>
+</head>
+<body>
+<!--左边为游戏区域,右边为辅助区域(右上角为下一方块预告区,右下角为操作说明区)-->
+<div>
+    <div id="gameArea">
+<!--        根据设置的棋盘宽高,动态往里面添加-->
+        <table id="boardTable"></table>
+    </div>
+    <div id="rightArea">
+        <div id="nextArea">
+            <table id="nextBoardTable"></table>
+        </div>
+        <div id="noticeArea">
+            <h3>变体:上箭头</h3>
+            <h3>左右移动:左右</h3>
+            <h3>加速下滑:下箭头</h3>
+            <h3>改变速度:+ -</h3>
+            <h3>暂停:SPACE</h3>
+            <h3>重新开始:ctrl+R</h3>
+            <h3>----------</h3>
+            <h3 id="scopeText">分数:</h3><h3 id="scope">0</h3>
+            <h3 id="speedText">速度:</h3><h3 id="speed">20</h3>
+        </div>
+    </div>
+</div>
+</body>
+</html>
