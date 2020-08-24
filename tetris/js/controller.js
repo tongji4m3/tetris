@@ -1,3 +1,4 @@
+//之后函数要用到的一些全局变量
 let flag = Math.floor(Math.random() * 21 + 1)//随机数在[0,21]之间
 let nextFlag = Math.floor(Math.random() * 21 + 1)//随机数在[0,21]之间
 let tetris = new Tetris(flag, FIRST_X, FIRST_Y);//方块
@@ -8,16 +9,17 @@ let movable = true;
 let speed = 20;//下落速度
 let scope = 0;//得分
 
-
+//页面加载即调用的入口函数
 window.onload = function ()
 {
-    init();
-    append();
-    draw();
-    updateSmall();
-    drawSmall();
-    moveDownId = setInterval(moveDown, 5000/speed);
-    addEventListener();
+    //游戏执行的逻辑
+    init();//对游戏区与预告区对应的二维数组初始化
+    append();//动态的往html页面添加表格,把逻辑上的二维数组转为表格
+    draw();//为游戏区表格根据逻辑着色,不同颜色代表不同的东西,例如墙,下落方块,已下落方块等
+    updateSmall();//更新预告区方块的二维数组
+    drawSmall();//对预告区方块着色
+    moveDownId = setInterval(moveDown, 5000/speed);//方块不断向下移动
+    addEventListener();//添加事件监听,使得用户能交互
 }
 
 //添加监听事件
@@ -136,11 +138,11 @@ function moveDown()
 {
     if(movable) //实现暂停功能
     {
-        //将整体都向下移动一格
-        tetris.point.x++;
-        makeTetris(tetris);
 
-        if (!isMovable())
+        tetris.point.x++;//将方块核心位置向下移动一格
+        makeTetris(tetris);//重新制作该方块坐标,将整体都向下移动一格
+
+        if (!isMovable())//如果不能继续下落,则开始新的循环
         {
             newStart();
         }
@@ -159,16 +161,15 @@ function newStart()
     tetris.point.x--;
     makeTetris(tetris);
 
-    //将新的变成老的
-    updateBoard();
+    updateBoard();//将方块状态设置为不能移动的方块
     for (let i = 0; i < tetris.tetrisPoint.length; i++)
     {
         board[tetris.tetrisPoint[i].x][tetris.tetrisPoint[i].y] = OLD;
     }
 
     //判断清除行的时机
-    clearLine();
-    draw();
+    clearLine();//下落完成后判断是否要消除一行
+    draw();//重新绘图
 
     if (isOver())
     {
@@ -176,15 +177,14 @@ function newStart()
     }
     else
     {
-        //新开个tetris
-        flag = nextFlag;
+        flag = nextFlag;//新开个tetris
         nextFlag = Math.floor(Math.random() * 21 + 1);
         tetris = nextTetris;
         tetris.point.x = FIRST_X;//从中间下落
         tetris.point.y = FIRST_Y;
         nextTetris = new Tetris(flag, NEXT_X, NEXT_Y);//方块
 
-        //绘制下一方块
+        //绘制预告区方块
         updateSmall();
         drawSmall();
     }

@@ -25,5 +25,5 @@ const KEY = {
     SPEED_UP: 107,
     SPEED_DOWN: 109
 }
-
-const COLORS = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];//颜色
+//颜色
+const COLORS = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];

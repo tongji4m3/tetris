@@ -15,11 +15,12 @@
 <!--左边为游戏区域,右边为辅助区域(右上角为下一方块预告区,右下角为操作说明区)-->
 <div>
     <div id="gameArea">
-<!--        根据设置的棋盘宽高,动态往里面添加-->
+<!--        游戏区表格,根据设置的棋盘宽高,动态往里面添加-->
         <table id="boardTable"></table>
     </div>
     <div id="rightArea">
         <div id="nextArea">
+<!--            预告区表格,通过view.js的append方法动态添加表格-->
             <table id="nextBoardTable"></table>
         </div>
         <div id="noticeArea">

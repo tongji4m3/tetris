@@ -9,13 +9,13 @@ function Point(x, y)
 //属性分别是:位置,类型,颜色,整体坐标
 function Tetris(flag, x, y)
 {
-    this.point = new Point(x, y);
+    this.point = new Point(x, y);//自己定义的二维位置坐标类,方便坐标表示
     this.flag = flag;//传入的flag为[1-21]
     //随机选一种颜色,随机数在[0,length)之间
     this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
     //一共21种形状,根据位置和类型生成
-    this.tetrisPoint = new Array(4);
-    makeTetris(this);
+    this.tetrisPoint = new Array(4);//每种形状的方块都只有四个点
+    makeTetris(this);//根据形状和核心点坐标,确定四个点的坐标
 }
 
 //根据(x,y)与flag,确定具体形状为21种的哪一种
@@ -197,7 +197,6 @@ makeTetris= function (tetris)
             break;
     }
 }
-
 //改变动作
 changeTetris = function (tetris)
 {
@@ -275,7 +274,6 @@ changeTetris = function (tetris)
     //改变了flag,还要改变具体的形状
     makeTetris(tetris);
 }
-
 //撤销改变,例如改变后发现空间不足,则立刻撤销改变
 rechangeTetris = function (tetris)
 {
